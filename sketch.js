@@ -1,5 +1,8 @@
 function setup() {
     
+    // red, blue, yellow, white, black
+    const possibleColors = ["#f50f0f", "#0d7fbe", "#fae317", "#f3f3f3", "#000000"];
+
     // size of each square
     const squareSize = 50;
 
@@ -19,7 +22,10 @@ function setup() {
             const green = random(255);
             const blue = random(255);
 
-            const myColor = color(red, green, blue);
+            // choose random hex code from array
+            const colorCode = random(possibleColors)
+            // store chosen object in myColor variable            
+            const myColor = color(colorCode)
 
             // fill all the square with one colour
             fill(myColor)
