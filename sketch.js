@@ -36,8 +36,9 @@ function setup() {
             // x = position of the left of the square
             // y = position of the top of the square
             // s = size of the side of the square
-
-            square(x, y, width)
+            // width = width in pixels of the rectangle
+            // height = height in pixels of the rectangle
+            rect(x, y, width, height)
         }
     }
 }
