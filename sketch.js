@@ -10,7 +10,7 @@ function setup() {
     const canvasSize = 800
 
     // list of possible cell sizes based on square size 
-    const possibleCellSizes = [squareSize, 2 * squareSize, 3 * squareSize]
+    const possibleCellSizes = [squareSize, squareSize, squareSize, 2 * squareSize, 3 * squareSize]
 
     // set width and height
     const width = squareSize
@@ -27,7 +27,9 @@ function setup() {
         x = 0
 
         // generate a random height from the possible cell sizes
-        const actualHeight = random(possibleCellSizes)
+        let actualHeight = random(possibleCellSizes)
+
+        if(y + actualHeight > canvasSize) actualHeight = canvasSize - y;
 
         while (x < canvasSize) {
 
@@ -39,8 +41,14 @@ function setup() {
             // fill all the square with one colour
             fill(myColor)
 
+            const borderColor = color("#404040")
+            stroke(borderColor)
+            strokeWeight(5)
+
             // generate a random width from the possible cell sizes
-            const actualWidth = random(possibleCellSizes)
+            let actualWidth = random(possibleCellSizes)
+
+            if(x + actualWidth > canvasSize) actualWidth = canvasSize - x;
 
             // rect(x, y, width, height)
             // x = position of the left of the square
