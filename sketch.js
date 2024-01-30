@@ -6,17 +6,16 @@ function setup() {
     // size of each square
     const squareSize = 50;
 
-    // number of cells of the grid
-    const cellNumber = 10;
-
     // canvas size in pixels
-    const canvasSize = squareSize * cellNumber
+    const canvasSize = 800
+
+    // list of possible cell sizes based on square size 
+    const possibleCellSizes = [squareSize, 2 * squareSize, 3 * squareSize]
 
     // set width and height
     const width = squareSize
     const height = squareSize
 
-    noStroke(0);
     createCanvas(canvasSize, canvasSize);
     background(220);
 
@@ -26,6 +25,9 @@ function setup() {
     while (y < canvasSize) {
 
         x = 0
+
+        // generate a random height from the possible cell sizes
+        const actualHeight = random(possibleCellSizes)
 
         while (x < canvasSize) {
 
@@ -37,22 +39,24 @@ function setup() {
             // fill all the square with one colour
             fill(myColor)
 
+            // generate a random width from the possible cell sizes
+            const actualWidth = random(possibleCellSizes)
+
             // rect(x, y, width, height)
             // x = position of the left of the square
             // y = position of the top of the square
-            // s = size of the side of the square
             // width = width in pixels of the rectangle
             // height = height in pixels of the rectangle
-            rect(x, y, width, height)
+            rect(x, y, actualWidth, actualHeight)
 
             // update x
 
-            x = x + width
+            x = x + actualWidth
         }
 
         // update y 
 
-        y = y + width
+        y = y + actualHeight
 
     }
 }
